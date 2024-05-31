@@ -3,8 +3,10 @@ import bodyParser from "body-parser";
 import slackrouter from './routes/slack.route.js'
 import nodemailerroute from './routes/nodemailer.router.js'
 import discordrouter from './routes/discord.route.js'
+import cors from 'cors'
 
 const app = express()
+app.use(cors())
 app.use(bodyParser())
 app.use('/' , slackrouter )
 app.use('/', nodemailerroute)
@@ -13,7 +15,9 @@ app.get('/', (req, res) => {
   res.json({ message: "Server running on port 5000" })
 })
 
-app.post('/send-email', );
+app.post('/send-email', (req , res)=>{
+  
+});
 
 
 
